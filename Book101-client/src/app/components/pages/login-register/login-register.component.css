@@ -1,0 +1,172 @@
+.shop.join {
+  padding: 0;
+  background: #fff;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+.shop.join .join-form {
+  margin: 30px;
+}
+.shop.join .join-form h2 {
+  font-size: 25px;
+  color: #333;
+  font-weight: 700;
+  line-height: 27px;
+}
+.shop.join .join-form p {
+  font-size: 16px;
+  color: #333;
+  font-weight: 400;
+  margin-top: 12px;
+  margin-bottom: 30px;
+}
+.shop.join .form{}
+.shop.join .form .form-group {
+  margin-bottom: 25px;
+  width: 100%;
+}
+.shop.join .form .form-group label{
+  color:#333;
+  position:relative;
+}
+.shop.join .form .form-group label span {
+  color: #ff2c18;
+  display: inline-block;
+  position: absolute;
+  font-size: 16px;
+}
+.shop.join .form .form-group input {
+  width: 100%;
+  border-radius: 3px;
+  border-radius: 0px;
+  color: #333 !important;
+  border: none;
+}
+
+.shop.join .single-widget {
+  margin-bottom: 30px;
+}
+.shop.join .single-widget:last-child{
+  margin:0;
+}
+.shop.join .single-widget h2 {
+  position:relative;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 30px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #333;
+  padding-bottom: 5px;
+}
+.shop.join .single-widget h2:before{
+  position:absolute;
+  content:"";
+  left:30px;
+  bottom:0;
+  height:2px;
+  width:50px;
+  background: #000000;
+}
+
+.shop.join .single-widget .content ul{
+  margin-top:30px;
+}
+.shop.join .single-widget .content ul li {
+  display: block;
+  padding: 0px 30px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 12px;
+}
+.shop.join .single-widget .content ul li span{
+  display:inline-block;
+  float:right;
+}
+.shop.join .single-widget .content ul li.last {
+  padding-top: 12px;
+  border-top: 1px solid #ebebeb;
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+}
+.shop.join .single-widget .checkbox {
+  text-align: left;
+  margin: 0;
+  padding: 0px 30px;
+  margin-top:30px;
+}
+
+.shop.join .single-widget .checkbox label {
+  color: #555555;
+  position: relative;
+  font-size: 14px;
+  padding-left: 20px;
+  margin-top: -5px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 15px;
+}
+.shop.join .single-widget .checkbox label:last-child{
+  margin-bottom:0;
+}
+.shop.join .single-widget .checkbox label:hover{
+  cursor:pointer;
+}
+.shop.join .single-widget .checkbox label input{
+  display:none;
+}
+.shop.join .single-widget .checkbox label::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  line-height: 16px;
+  border: 1px solid #666;
+  border-radius: 100%;
+}
+.shop.join .single-widget .checkbox label::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  line-height: 16px;
+  border-radius: 100%;
+  display:block;
+  background:#666;
+  transform:scale(0);
+  -webkit-transition:all 0.4s ease;
+  -moz-transition:all 0.4s ease;
+  transition:all 0.4s ease;
+}
+.shop.join .single-widget .checkbox label.checked::after{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1);
+}
+.shop.join .single-widget.payement {
+  padding: 0px 38px;
+  text-align: center;
+  margin-top: 30px;
+}
+.shop.join .single-widget.get-button {
+  text-align: center;
+  padding:0px 35px;
+}
+.shop.join .single-widget.get-button .btn {
+  height: 46px;
+  width: 100%;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 0;
+  text-transform: uppercase;
+  color: #fff;
+  background: #1e1e1e;
+}
+

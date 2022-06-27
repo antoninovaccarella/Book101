@@ -1,0 +1,214 @@
+<header class="page-header"  data-background="../../../assets/images/slide01.jpg">
+  <div class="inner">
+    <h1>Checkout</h1>
+    <p>Inserisci le tue informazioni per completare l'ordine</p>
+  </div>
+  <!-- end inner -->
+</header>
+<section class="section" data-background="#fffff">
+  <div class="container">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step>
+        <ng-template matStepLabel></ng-template>
+        <div style="margin-top: 30px">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3>Il tuo carrello</h3>
+              <p>Controlla il carrello e concludi l'ordine</p>
+            </div>
+            <div class="col text-end">
+              <h3>Totale: {{totalAmount}} €</h3>
+            </div>
+          </div>
+        </div>
+        <div class="cart">
+          <div *ngFor="let c of shoppingCartItems" class="items">
+            <div class="row align-items-center">
+              <div class="col-lg-2 col-sm-4">
+                <img [alt]="c.product.name" [src]="c.product.picture"/>
+              </div>
+              <div class="col-lg-5 col-sm-8">
+                <div class="row">
+                  <div class="align-self-start">
+                    <h5>{{c.product.name}}</h5>
+                    <p>{{c.product.description}}</p>
+                    <h5><b>{{c.quantity}}</b> x {{c.product.price}} €</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-1 col-sm-2">
+                <div style="display: flex; align-items:center; justify-content: center;">
+                  <button mat-icon-button (click)="removeFromCart(c)">
+                    <mat-icon style="font-size: 35px; height: 35px; width: 35px;">delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-8">
+                <ul class="pagination justify-content-center" style="user-select: none">
+                  <li [ngClass]="c.quantity > 1 ? 'page-item' : 'page-item disabled'">
+                    <a class="page-link" (click)="decrement(c)">-</a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link">{{c.quantity}}</a>
+                  </li>
+                  <li [ngClass]="c.quantity < c.product.stock ? 'page-item' : 'page-item disabled'">
+                    <a class="page-link" (click)="increment(c)">+</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-2 col-sm-2 text-end">
+                <h4>{{c.product.price * c.quantity}} €</h4>
+              </div>
+            </div>
+          </div>
+          <div style="float: right;">
+            <button mat-button matStepperNext>Avanti</button>
+          </div>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel></ng-template>
+        <div style="margin-top: 30px">
+          <h3>Completa l'acquisto</h3>
+          <p>Inserisci il tuo indirizzo di spedizione ed eventuali recapiti</p>
+        </div>
+        <div class="checkout-form">
+          <!-- Form -->
+          <form class="form" [formGroup]="firstFormGroup" (ngSubmit)="onSubmit()" #form="ngForm">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>Nome</mat-label>
+                  <input matInput placeholder="Il tuo nome" formControlName="firstNameCtrl" name="firstName">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>Cognome</mat-label>
+                  <input matInput placeholder="Il tuo cognome" formControlName="lastNameCtrl" name="lastName">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="La tua email" formControlName="emailCtrl" name="email">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6 col-md-6 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>Telefono</mat-label>
+                  <input matInput placeholder="Il tuo numero di telefono" formControlName="phoneCtrl" name="phone">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-12 col-md-12 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>Via e numero civico</mat-label>
+                  <input matInput placeholder="Dove abiti?" formControlName="streetCtrl" name="street">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-6 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>Provincia</mat-label>
+                  <input matInput placeholder="Provincia" formControlName="stateCtrl" name="state">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-6 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>Città</mat-label>
+                  <input matInput placeholder="Città" formControlName="cityCtrl" name="city">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-4 col-md-6 col-12">
+                <mat-form-field class="form-group" appearance="legacy">
+                  <mat-label>CAP</mat-label>
+                  <input matInput placeholder="CAP" formControlName="zipcodeCtrl" name="zipcode">
+                  <mat-error>Campo non valido</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-radio-group formControlName="paymentMethodCtrl">
+                  <mat-radio-button class="m-2" *ngFor="let method of paymentMethods, let i = index"
+                                    value="{{i}}">{{method}}</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+          </form>
+          <!--/ End Form -->
+        </div>
+        <div style="float: right;">
+          <button class="m-2" mat-button matStepperPrevious><b>Indietro</b></button>
+          <button mat-button matStepperNext type="submit" (click)="form.ngSubmit.emit()">Avanti</button>
+        </div>
+      </mat-step>
+      <!-- #docregion label -->
+      <mat-step>
+        <ng-template matStepLabel></ng-template>
+        <div style="margin-top: 30px">
+          <div class="row align-items-center">
+            <div class="col">
+              <h3>Riepilogo</h3>
+              <p>Dai un'ultima occhiata e conferma il tuo ordine.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cart col-lg-8 col-sm-12">
+            <div *ngFor="let c of shoppingCartItems" class="items">
+              <div class="row align-items-center">
+                <div class="col-lg-3 col-sm-5">
+                  <img [alt]="c.product.name" [src]="c.product.picture"/>
+                </div>
+                <div class="col-lg-7 col-sm-10">
+                  <div class="row">
+                    <div class="align-self-start">
+                      <h5>{{c.product.name}}</h5>
+                      <p>{{c.product.description}}</p>
+                      <h5><b>{{c.quantity}}</b> x {{c.product.price}} €</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-sm-1">
+                  <h4>{{c.product.price * c.quantity}} €</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-12">
+            <div style="padding-bottom: 44px">
+              <mat-card>
+                <mat-card-title>Dettagli spedizione</mat-card-title>
+                <mat-card-subtitle>Dove riceverai il tuo ordine?</mat-card-subtitle>
+                <mat-card-content>
+                  <h6>{{order.shippingAddress}}</h6>
+                  <p>{{order.email}}<br>{{order.phone}}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div>
+              <mat-card>
+                <mat-card-title>Dettagli Pagamento</mat-card-title>
+                <mat-card-subtitle>Come hai scelto di pagare e quanto?</mat-card-subtitle>
+                <mat-card-content>
+                  <h6>Totale: {{totalAmount}} €</h6>
+                  <p>{{paymentMethods[selectedPayment]}}</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+          <div style="float: right; padding-top: 44px">
+            <button class="m-2" mat-button matStepperPrevious><b>Indietro</b></button>
+            <button mat-button matStepperNext (click)="purchaseOrder()">Concludi l'ordine</button>
+          </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</section>
+

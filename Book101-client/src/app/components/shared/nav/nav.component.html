@@ -1,0 +1,116 @@
+<div class="search-box">
+  <div class="container">
+    <div class="form">
+      <h3>CERCA NEL NEGOZIO</h3>
+      <input matInput type="search" placeholder="Cosa stai cercando?" [(ngModel)]="querySearch">
+      <div class="d-sm-none d-lg-block search-btn">
+        <a (click)="search(querySearch)">Cerca</a>
+      </div>
+    </div>
+    <!-- end form -->
+  </div>
+</div>
+<!-- end search-box -->
+<aside class="side-widget align-items-lg-start" style="overflow: hidden">
+  <svg viewBox="0 0 600 1080" preserveAspectRatio="none" version="1.1">
+    <path
+      d="M540,1080H0V0h540c0,179.85,0,359.7,0,539.54C540,719.7,540,899.85,540,1080z"
+    ></path>
+  </svg>
+  <figure class="logo">
+    <img src="assets/images/logo1.png" alt="Image"/>
+  </figure>
+  <!-- end logo -->
+  <div class="inner">
+    <div class="widget d-flex flex-column">
+      <h6 class="widget-title">Il tuo carrello</h6>
+      <p>Elementi nel carrello: {{shoppingCartItems.length}}<br/></p>
+      <div class="cart">
+        <div *ngFor="let c of shoppingCartItems" class="items">
+          <div class="row align-items-center">
+            <div class="col-4">
+              <img [alt]="c.product.name" [src]="c.product.picture"/>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="align-self-start">
+                  <h6>{{c.product.name}}</h6>
+                  <h6><b>{{c.quantity}}</b> x {{c.product.price}} €</h6>
+                </div>
+                <div class="align-text-bottom">
+                  <a class="mt-auto" style="color: white" (click)="removeFromCart(c)"><p>Rimuovi</p></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-2 text-end">
+              <h6>{{c.product.price * c.quantity}} €</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-between">
+        <div class="col">
+          <h5>
+            <a *ngIf="isLoggedIn" style="color: white" href="checkout">CHECKOUT</a>
+          </h5>
+        </div>
+        <div class="col text-end">
+          <h5>
+            Totale: {{total}} €
+          </h5>
+        </div>
+      </div>
+    <div>
+      <a *ngIf="isLoggedIn" style="color: white" [routerLink]="['/myorders']" routerLinkActive="router-link-active">I miei ordini</a>
+      </div>
+    </div>
+    <!-- end widget -->
+  </div>
+
+  <!-- end inner -->
+  <div class="display-mobile">
+    <div class="custom-menu">
+      <ul>
+        <li *ngIf="isLoggedIn"><a href="#"> Esci</a></li>
+        <li *ngIf="!isLoggedIn"><a href="#">Entra</a></li>
+        <li><a href="#">Carrello</a></li>
+        <li><a *ngIf="isLoggedIn" style="color: white" [routerLink]="['/myorders']" routerLinkActive="router-link-active">I miei ordini</a></li>
+      </ul>
+    </div>
+    <!-- end custom-menu -->
+    <div class="site-menu">
+      <ul>
+        <li><a [routerLink]="['/home']" routerLinkActive="router-link-active">Shop</a></li>
+        <li><a [routerLink]="['/about']" routerLinkActive="router-link-active">Chi Siamo</a></li>
+      </ul>
+    </div>
+    <!-- end site-menu -->
+  </div>
+  <!-- end display-mobile -->
+</aside>
+<!-- end side-widget -->
+<nav class="navbar justify-content-between">
+  <div class="logo">
+    <a href=""> <img src="assets/images/logo1.png" alt="Image"/> </a>
+  </div>
+  <!-- end logo -->
+  <!-- end custom-menu -->
+  <div class="site-menu abs-center-x">
+    <ul>
+      <li><a href="/shop/all?pageNumber=0&pageSize=9&sortBy=id">Shop</a></li>
+      <li><a href="about">Chi Siamo</a></li>
+    </ul>
+  </div>
+
+  <div class="search-button"><i class="far fa-search"></i></div>
+  <div class="hamburger-menu">
+    <svg class="hamburger" width="30" height="30" viewBox="0 0 30 30">
+      <path class="line line-top" d="M0,9h30"/>
+      <path class="line line-center" d="M0,15h30"/>
+      <path class="line line-bottom" d="M0,21h30"/>
+    </svg>
+  </div>
+  <div *ngIf="isLoggedIn" class="d-sm-none d-lg-block navbar-button"><a (click)="logOut()">ESCI</a></div>
+  <div *ngIf="!isLoggedIn" class="d-sm-none d-lg-block navbar-button"><a href="/join">ENTRA</a></div>
+</nav>
+<!-- end navbar -->

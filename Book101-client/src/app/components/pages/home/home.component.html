@@ -1,0 +1,340 @@
+<header class="slider">
+  <div class="swiper-container slider-images">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" data-background="assets/images/slide01.jpg">
+        <div
+          class="mobile-slide"
+          data-background="assets/images/slide-mobile01.jpg"
+        ></div>
+      </div>
+      <div class="swiper-slide" data-background="assets/images/page-header.jpg">
+        <div
+          class="mobile-slide"
+          data-background="assets/images/slide-mobile02.jpg"
+        ></div>
+      </div>
+      <div class="swiper-slide" data-background="assets/images/slide02.jpg">
+        <div
+          class="mobile-slide"
+          data-background="assets/images/slide-mobile03.jpg"
+        ></div>
+      </div>
+    </div>
+    <!-- end swiper-wrapper -->
+    <div class="container-fluid slider-nav">
+      <div class="swiper-pagination"></div>
+      <!-- end swiper-pagination -->
+      <div class="swiper-fraction"></div>
+      <!-- end swiper-fraction -->
+      <div class="button-prev"><i class="far fa-chevron-down"></i></div>
+      <!-- end swiper-button-prev -->
+      <div class="button-next"><i class="far fa-chevron-up"></i></div>
+      <!-- end swiper-button-next -->
+    </div>
+    <!-- end slider-nav -->
+  </div>
+  <!-- end slider-images -->
+  <div class="swiper-container slider-texts">
+    <svg class="svg-morph" height="400" width="580">
+      <path
+        d="m261,30.4375c0,0 114,6 151,75c37,69 37,174 6,206.5625c-31,32.5625 -138,11.4375 -196,-19.5625c-58,-31 -86,-62 -90,-134.4375c12,-136.5625 92,-126.5625 129,-127.5625z"
+        id="svg_morph"
+      />
+    </svg>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="container-fluid">
+          <h1>
+            La biblioteca universitaria
+          </h1>
+        </div>
+        <!-- end container -->
+      </div>
+      <!-- end swiper-slide -->
+      <div class="swiper-slide">
+        <div class="container-fluid">
+          <h1>
+            Cerca il libro <br/>
+            che fa per te
+          </h1>
+          <p>
+            Su Book101 trovi una ricca offerta di libri <br/>
+            su ogni materia e argomento.
+          </p>
+        </div>
+        <!-- end container -->
+      </div>
+      <!-- end swiper-slide -->
+      <div class="swiper-slide">
+        <div class="container-fluid">
+          <h1>
+            La tua libreria <br/>
+            digitale
+          </h1>
+          <p>
+            Scopri i libri universitari e professionali, <br/>
+            test e manuali, per i tuoi esami e concorsi.
+          </p>
+        </div>
+        <!-- end container -->
+      </div>
+      <!-- end swiper-slide -->
+    </div>
+    <!-- end swiper-wrapper -->
+  </div>
+  <!-- end slider-texts -->
+</header>
+<!-- end slider -->
+
+<!-- end content-section -->
+<section class="content-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="section-title">
+          <figure>
+            <img alt="Image" src="assets/images/title-shape.png"/>
+          </figure>
+
+          <h2>IN EVIDENZA</h2>
+        </div>
+        <!-- end section-title -->
+      </div>
+      <!-- end col-9 -->
+      <div class="col-lg-3">
+        <a class="circle-button" href="/join">ENTRA</a>
+      </div>
+      <!-- end col-3 -->
+    </div>
+    <!-- end row -->
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="exhibition-box" data-scroll data-scroll-speed="-1">
+          <figure>
+            <img [src]="firstProds[0].picture" [alt]="firstProds[0].name">
+            <div class="info">
+              <figure class="i">
+                <img alt="Image" src="assets/images/icon-info.png"/>
+              </figure>
+              <span>Acquista ora</span>
+            </div>
+            <!-- end info -->
+          </figure>
+          <div class="content-box">
+            <h4>
+              <a href="shop/product/{{firstProds[0].id}}">{{firstProds[0].name}}</a>
+            </h4>
+            <p>{{firstProds[0].description}}</p>
+          </div>
+          <!-- end content-box -->
+        </div>
+        <!-- end exhibition-box -->
+      </div>
+      <!-- end col-4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="exhibition-box" data-scroll data-scroll-speed="1">
+          <figure>
+            <img [src]="firstProds[1].picture" [alt]="firstProds[1].name">
+            <div class="info">
+              <figure class="i">
+                <img alt="Image" src="assets/images/icon-info.png"/>
+              </figure>
+              <span>Acquista ora</span>
+            </div>
+            <!-- end info -->
+          </figure>
+          <div class="content-box">
+            <h4>
+              <a href="shop/product/{{firstProds[1].id}}">{{firstProds[1].name}}</a>
+            </h4>
+            <p>{{firstProds[1].description}}</p>
+          </div>
+          <!-- end content-box -->
+        </div>
+        <!-- end exhibition-box -->
+      </div>
+      <!-- end col-4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="exhibition-box" data-scroll data-scroll-speed="-1">
+          <figure>
+            <img [src]="firstProds[2].picture" [alt]="firstProds[2].name">
+            <div class="info">
+              <figure class="i">
+                <img alt="Image" src="assets/images/icon-info.png"/>
+              </figure>
+              <span>Acquista ora</span>
+            </div>
+            <!-- end info -->
+          </figure>
+          <div class="content-box">
+            <h4>
+              <a href="shop/product/{{firstProds[2].id}}">{{firstProds[2].name}}</a>
+            </h4>
+            <p>{{firstProds[2].description}}</p>
+          </div>
+          <!-- end content-box -->
+        </div>
+        <!-- end exhibition-box -->
+      </div>
+      <!-- end col-4 -->
+      <div class="col-12 text-center">
+        <a class="custom-button" href="/shop/all?pageNumber=0&pageSize=9&sortBy=id">VEDI TUTTI I LIBRI</a>
+      </div>
+      <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- end content-section -->
+<section class="content-section no-bottom-spacing">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-title text-center">
+          <figure>
+            <img alt="Image" src="assets/images/title-shape.png"/>
+          </figure>
+          <h6>Medicine101</h6>
+          <h2>Medicina</h2>
+        </div>
+        <!-- end section-title -->
+      </div>
+      <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+  <div class="container-fluid px-0">
+    <div class="row g-0">
+      <div class="col-lg-4">
+        <div class="image-icon-box" data-scroll data-scroll-speed="0">
+          <figure class="content-image">
+            <img [src]="secondProds[0].picture" [alt]="secondProds[0].name">
+          </figure>
+          <div class="content-box">
+            <b>01.</b>
+            <h4>{{secondProds[0].name}}</h4>
+            <div class="expand">
+              <p>
+                {{secondProds[0].description}}
+              </p>
+              <a class="custom-link" href="shop/product/{{secondProds[0].id}}">Scopri di più</a>
+            </div>
+            <!-- end expand -->
+          </div>
+          <!-- end content-box -->
+        </div>
+        <!-- end image-icon-box -->
+      </div>
+      <!-- end col-4 -->
+      <div class="col-lg-4">
+        <div class="image-icon-box" data-scroll data-scroll-speed="0.5">
+          <figure class="content-image">
+            <img [src]="secondProds[1].picture" [alt]="secondProds[1].name">
+          </figure>
+          <div class="content-box">
+            <b>02.</b>
+            <h4>{{secondProds[1].name}}</h4>
+            <div class="expand">
+              <p>
+                {{secondProds[1].description}}
+              </p>
+              <a class="custom-link" href="shop/product/{{secondProds[1].id}}">Scopri di più</a>
+            </div>
+            <!-- end expand -->
+          </div>
+          <!-- end content-box -->
+        </div>
+        <!-- end image-icon-box -->
+      </div>
+      <!-- end col-4 -->
+      <div class="col-lg-4">
+        <div class="image-icon-box" data-scroll data-scroll-speed="1">
+          <figure class="content-image">
+            <img [src]="secondProds[2].picture" [alt]="secondProds[2].name">
+          </figure>
+          <div class="content-box">
+            <b>03.</b>
+            <h4>{{secondProds[2].name}}</h4>
+            <div class="expand">
+              <p>
+                {{secondProds[2].description}}
+              </p>
+              <a class="custom-link" href="shop/product/{{secondProds[2].id}}">Scopri di più</a>
+            </div>
+            <!-- end expand -->
+          </div>
+          <!-- end content-box -->
+        </div>
+        <!-- end image-icon-box -->
+      </div>
+      <!-- end col-4 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+
+<section class="content-section">
+  <div class="video-bg">
+    <img alt="Image" src="assets/images/economics.jpg"/>
+  </div>
+  <!-- end video-bg -->
+  <div class="container">
+    <div class="cta-box" data-scroll data-scroll-speed="-1">
+      <h6>FTSE MIB    S&P500    BTC</h6>
+      <h2>
+        ECONOMIA
+      </h2>
+      <a  href="/shop/economics?pageNumber=0&pageSize=9&sortBy=id" class="custom-button">VEDI</a>
+    </div>
+    <!-- end cta-box -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- end content-section -->
+<section class="content-section no-spacing" data-background="#94ffc4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="newsletter-box">
+          <div class="form">
+            <div class="titles">
+              <h6>Entra per rimanere aggiornato sulle ultime novità</h6>
+              <h2>Iscriviti alla newsletter</h2>
+            </div>
+            <!-- end titles -->
+            <div class="inner">
+              <input
+                placeholder=""
+                type="email"
+              />
+              <input type="submit" value="ENTRA"/>
+            </div>
+            <!-- end inner -->
+            <small>I dati saranno trattati in accordo alla nostra
+              <a href="#">Privacy Policy</a>
+            </small>
+          </div>
+          <!-- end form -->
+          <figure
+            class="newsletter-image"
+            data-scroll
+            data-scroll-speed="0.7"
+          >
+            <img alt="Image" src="assets/images/newsletter-image.png"/>
+          </figure>
+        </div>
+        <!-- end newsletter-box -->
+      </div>
+      <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- end content-section -->
+
+
+

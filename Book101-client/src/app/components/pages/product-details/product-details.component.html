@@ -1,0 +1,100 @@
+<header class="page-header" data-background="../../../assets/images/slide01.jpg">
+  <div class="inner">
+    <svg class="svg-morph" height="400" width="580">
+      <path d="m261,30.4375c0,0 114,6 151,75c37,69 37,174 6,206.5625c-31,32.5625 -138,11.4375 -196,-19.5625c-58,-31 -86,-62 -90,-134.4375c12,-136.5625 92,-126.5625 129,-127.5625z"
+            id="svg_morph"/>
+    </svg>
+    <h1>Shop</h1>
+    <p>Spediamo in tutta Italia, ordina subito!</p>
+  </div>
+  <!-- end inner -->
+</header>
+<!-- end page-header -->
+<section class="content-section" data-background="#fffff">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="collection-box" data-scroll data-scroll-speed="0" >
+          <figure><img [src]="product.picture" [alt]="product.name"></figure>
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-6 d-flex flex-column">
+        <div class="content-box">
+          <p style="padding-top: 15px">
+            <a href="/shop/all?pageNumber=0&pageSize=9&sortBy=id">SHOP</a>
+             /
+            <a href="/shop/{{product.category.toLowerCase()}}?pageNumber=0&pageSize=9&sortBy=id">{{product.category}}</a>
+          </p>
+          <h1>{{product.name}}</h1>
+          <h2 class="wrapper-price">{{product.price}} €</h2>
+          <p></p>
+          <p>{{product.shortDetails}}</p>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="col-12 text-center">
+          <div class="row">
+            <div class="col-lg-5 col-md-6">
+              <ul class="pagination justify-content-center" style="user-select: none; margin-top: 55px">
+                <li [ngClass]="quantity > 1 ? 'page-item' : 'page-item disabled'">
+                  <a class="page-link" (click)="decrement()">-</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link">{{quantity}}</a>
+                </li>
+                <li [ngClass]="quantity < product.stock ? 'page-item' : 'page-item disabled'">
+                  <a class="page-link" (click)="increment()">+</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-7 col-md-6">
+              <a (click)="addToCart(product,quantity)" class="custom-button">AGGIUNGI AL CARRELLO</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end content-section -->
+<section class="content-section no-spacing" data-background="#94ffc4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="newsletter-box">
+          <div class="form">
+            <div class="titles">
+              <h6>Entra per rimanere aggiornato sulle ultime novità</h6>
+              <h2>Iscriviti alla newsletter</h2>
+            </div>
+            <!-- end titles -->
+            <div class="inner">
+              <input
+                placeholder=""
+                type="email"
+              />
+              <input type="submit" value="ENTRA"/>
+            </div>
+            <!-- end inner -->
+            <small>I dati saranno trattati in accordo alla nostra
+              <a href="#">Privacy Policy</a>
+            </small>
+          </div>
+          <!-- end form -->
+          <figure
+            class="newsletter-image"
+            data-scroll
+            data-scroll-speed="0.7"
+          >
+            <img alt="Image" src="assets/images/newsletter-image.png"/>
+          </figure>
+        </div>
+        <!-- end newsletter-box -->
+      </div>
+      <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- end content-section -->

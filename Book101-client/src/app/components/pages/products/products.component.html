@@ -1,0 +1,124 @@
+
+<!-- end page-header -->
+<section class="content-section" data-background="#fffff">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-title text-center">
+          <figure><img alt="Image" src="../../../assets/images/title-shape.png"></figure>
+          <h2>La nostra libreria</h2>
+        </div>
+        <!-- end section-title -->
+      </div>
+      <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div *ngFor="let product of products" class="col-lg-4 col-md-6">
+            <div class="collection-box" data-scroll data-scroll-speed="0">
+              <div class="exhibition-box">
+                <figure><img [alt]="product.name" [src]="product.picture">
+                  <div class="info">
+                    <figure class="i"><img alt="Image" src="../../../assets/images/icon-cart.png"></figure>
+                    <span (click)="addToCart(product)" class="pointer">Aggiungi al carrello</span>
+                  </div>
+                </figure>
+              </div>
+              <h5>{{product.price}} €</h5>
+              <h5><a href="shop/product/{{product.id}}">{{product.name}}</a></h5>
+              <!-- p>{{product.shortDetails}}</p -->
+            </div>
+            <!-- end collection-box -->
+          </div>
+          <!-- end col-3 -->
+        </div>
+        <div class="row p-5">
+          <ul class="pagination justify-content-center">
+            <li [ngClass]="pageNumberCurr > 1 ? 'page-item' : 'page-item disabled'">
+              <a (click)="pageBackward()" [queryParams]="{pageNumber: this.pageNumber, pageSize: this.pageSize, sortBy: this.sortBy}" class="page-link"
+                 routerLink="/shop/{{category}}">Precedente</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link">{{pageNumberCurr}}</a>
+            </li>
+            <li [ngClass]="products?.length == this.pageSize ? 'page-item' : 'page-item disabled'">
+              <a (click)="pageForward()" [queryParams]="{pageNumber: this.pageNumber, pageSize: this.pageSize, sortBy: this.sortBy}" class="page-link"
+                 routerLink="/shop/{{category}}">Successivo</a>
+            </li>
+          </ul>
+        </div>
+        <!-- end pagination -->
+      </div>
+      <!-- end col-8 -->
+      <div class="col-lg-4">
+        <aside class="sidebar">
+          <div class="widget">
+            <h6 class="widget-title">Categorie</h6>
+            <ul class="categories">
+              <li><a [queryParams]="{ pageNumber:0, pageSize:9, sortBy:'id' }" [routerLink]="['/shop/all']">Tutti i
+                prodotti</a></li>
+              <li><a [queryParams]="{ pageNumber:0, pageSize:9, sortBy:'id' }" [routerLink]="['/shop/engineering']">Ingegneria</a>
+              </li>
+              <li><a [queryParams]="{ pageNumber:0, pageSize:9, sortBy:'id' }" [routerLink]="['/shop/informatics']">Informatica</a>
+              </li>
+              <li><a [queryParams]="{ pageNumber:0, pageSize:9, sortBy:'id' }" [routerLink]="['/shop/economics']">Economia</a>
+              </li>
+              <li><a [queryParams]="{ pageNumber:0, pageSize:9, sortBy:'id' }"
+                     [routerLink]="['/shop/medicine']">Medicina</a></li>
+            </ul>
+          </div>
+          <!-- end widget -->
+        </aside>
+        <!-- end sidebar -->
+      </div>
+      <!-- end col-4 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- end content-section -->
+<section class="content-section no-spacing" data-background="#94ffc4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="newsletter-box">
+          <div class="form">
+            <div class="titles">
+              <h6>Entra per rimanere aggiornato sulle ultime novità</h6>
+              <h2>Iscriviti alla newsletter</h2>
+            </div>
+            <!-- end titles -->
+            <div class="inner">
+              <input
+                placeholder=""
+                type="email"
+              />
+              <input type="submit" value="ENTRA"/>
+            </div>
+            <!-- end inner -->
+            <small>I dati saranno trattati in accordo alla nostra
+              <a href="#">Privacy Policy</a>
+            </small>
+          </div>
+          <!-- end form -->
+          <figure
+            class="newsletter-image"
+            data-scroll
+            data-scroll-speed="0.7"
+          >
+            <img alt="Image" src="assets/images/newsletter-image.png"/>
+          </figure>
+        </div>
+        <!-- end newsletter-box -->
+      </div>
+      <!-- end col-12 -->
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>
+<!-- end content-section -->

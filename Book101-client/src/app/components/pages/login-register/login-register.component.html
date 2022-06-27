@@ -1,0 +1,131 @@
+<header class="page-header" data-background="../../../assets/images/slide01.jpg">
+  <div class="inner">
+    <h1>Entra</h1>
+    <p>Registrati o entra con le tue credenziali per iniziare ad acquistare</p>
+  </div>
+  <!-- end inner -->
+</header>
+
+<section *ngIf="!isLoggedIn" class="shop join section">
+  <div class="container">
+    <div class="row d-flex justify-content-around">
+      <mat-card class="m-3 col-lg-5 col-12">
+        <div class="join-form">
+          <div class="col-12" style="margin-bottom: 30px">
+            <h4>Login</h4>
+          </div>
+          <form #lForm="ngForm" (ngSubmit)="lForm.form.valid && onSubmitLogin()" class="form">
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field appearance="legacy" class="form-group">
+                  <mat-label>Username</mat-label>
+                  <input matInput
+                         type="text"
+                         placeholder="Il tuo nome utente"
+                         [(ngModel)]="loginForm.username"
+                         required
+                         #loginUsername="ngModel">
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-error *ngIf="loginUsername.invalid">Campo richiesto</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <mat-form-field appearance="legacy" class="form-group">
+                  <mat-label>Password</mat-label>
+                  <input matInput
+                         [type]=" lPasswordHide ? 'password' : 'text'"
+                         placeholder="La tua password"
+                         [(ngModel)]="loginForm.password"
+                         required
+                         #loginPassword="ngModel">
+                  <mat-error *ngIf="loginPassword.invalid">Campo richiesto</mat-error>
+                  <mat-icon matSuffix (click)="lPasswordHide = ! lPasswordHide" style="user-select: none">
+                    {{ lPasswordHide ? 'visibility_off' : 'visibility'}}
+                  </mat-icon>
+                </mat-form-field>
+              </div>
+              <div class="form-group single-widget get-button col-12">
+                <button [disabled]="!lForm.valid" class="btn btn-success" type="submit">Entra</button>
+              </div>
+              <div *ngIf="lForm.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                Errore nell'autenticazione: {{ errorMessage }}
+              </div>
+            </div>
+          </form>
+        </div>
+      </mat-card>
+
+      <mat-card class="m-3 col-lg-5 col-12">
+        <div class="join-form">
+          <div class="col-12" style="margin-bottom: 30px">
+            <h4>Registrati</h4>
+          </div>
+          <form #rForm="ngForm" (ngSubmit)="rForm.form.valid && onSubmitRegister()" class="form">
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field appearance="legacy" class="form-group">
+                  <mat-label>Username</mat-label>
+                  <input matInput
+                         type="text"
+                         name="username"
+                         placeholder="Il tuo nome utente"
+                         [(ngModel)]="registerForm.username"
+                         required
+                         minlength="3"
+                         maxlength="20"
+                         #registerUsername="ngModel">
+                  <mat-icon matSuffix>person</mat-icon>
+                  <mat-error *ngIf="registerUsername.invalid">Campo richiesto</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <mat-form-field appearance="legacy" class="form-group">
+                  <mat-label>Email</mat-label>
+                  <input matInput
+                         type="email"
+                         name="email"
+                         placeholder="La tua email"
+                         [(ngModel)]="registerForm.email"
+                         required
+                         email
+                         #registerEmail="ngModel">
+                  <mat-icon matSuffix>alternate_email</mat-icon>
+                  <mat-error *ngIf="registerEmail.invalid">Campo richiesto</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-12">
+                <mat-form-field appearance="legacy" class="form-group">
+                  <mat-label>Password</mat-label>
+                  <input matInput
+                         [type]=" rPasswordHide ? 'password' : 'text'"
+                         placeholder="La tua password"
+                         [(ngModel)]="registerForm.password"
+                         required
+                         #registerPassword="ngModel">
+                  <mat-error *ngIf="registerPassword.invalid">Campo richiesto</mat-error>
+                  <mat-icon matSuffix (click)="rPasswordHide = ! rPasswordHide" style="user-select: none">
+                    {{ rPasswordHide ? 'visibility_off' : 'visibility'}}
+                  </mat-icon>
+                </mat-form-field>
+                <div class="col-12">
+                  <mat-password-strength [password]="registerPassword.value"> </mat-password-strength>
+                  <p class="small" style="margin-top: 30px">
+                    La tua password deve essere lunga 8-20 caratteri, contenere lettere,
+                    numeri e preferibilmente caratteri speciali.
+                  </p>
+                </div>
+              </div>
+              <div class="form-group single-widget get-button col-12">
+                <button [disabled]="!rForm.valid" class="btn btn-success" type="submit">Registrati</button>
+              </div>
+              <div class="alert alert-warning" *ngIf="rForm.submitted && isSignUpFailed">
+                Registrazione fallita!<br />{{ errorMessage }}
+              </div>
+            </div>
+          </form>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</section>
+

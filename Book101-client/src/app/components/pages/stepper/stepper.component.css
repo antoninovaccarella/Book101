@@ -1,0 +1,24 @@
+.img {
+  max-width: 50%;
+}
+
+.cart .items {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: block;
+  width: 100%;
+  vertical-align: middle;
+
+}
+
+.cart .items p a {
+  display: inline-block;
+  font-size: 0.85em;
+  color: white;
+}
+
+.checkout-form .form .form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
